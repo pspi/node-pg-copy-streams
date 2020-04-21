@@ -1,9 +1,9 @@
 "use strict";
 
-const CopyToQueryStream = require("./copy-to");
+const copyTo = require("./copy-to");
 module.exports = {
   to(txt, options) {
-    return new CopyToQueryStream(txt, options);
+    return copyTo(txt, options);
   },
   from(txt, options) {
     return new CopyStreamQuery(txt, options);
