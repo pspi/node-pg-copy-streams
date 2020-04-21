@@ -1,5 +1,5 @@
-'use strict';
+"use strict";
 
-require('./copy-from')
-require('./copy-to')
-require('./binary')
+require("./copy-from");
+require("./copy-to");
+require("./binary");
