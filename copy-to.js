@@ -54,15 +54,14 @@ class CopyStreamQuery extends Transform {
     }
   }
 
-  pushAccumulatedContentChunks() {
+  flushContentChunks() {
     this.push(Buffer.concat(this.contentChunks));
-    this.chunks = [];
+    this.contentChunks = [];
   }
 
   _transform(chunk, enc, cb) {
-    this.contentChunks = [];
     this.protocolReader.read(chunk);
-    this.pushAccumulatedContentChunks();
+    this.flushContentChunks();
 
     if (this.metCopyDone) {
       this._detach();
