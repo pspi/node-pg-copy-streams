@@ -206,8 +206,6 @@ test("large row spans multiple chunks", (done) => {
   });
 });
 
-////////////////////////////
-
 test("two small rows are combined to single chunk", (done) => {
   const sql = "COPY (SELECT * FROM generate_series(1, 2)) TO STDOUT";
   assertDatabaseCopyToResult(sql, (err, chunks, result, stream) => {
